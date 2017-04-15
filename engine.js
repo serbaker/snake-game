@@ -33,7 +33,7 @@
 
   setInterval(() => {
     const clonedData = _.cloneDeep(data);
-    const data2 = game(clonedData.snake || [], clonedData.feed || [], key, { x: 25, y: 25 });
+    const data2 = game(clonedData.snake || [], clonedData.feed || [], key, { x: 25, y: 24 });
     clonedData.feed = data2.feed;
     data = _.defaults(clonedData, defaults);
       console.log(data2.snake);
