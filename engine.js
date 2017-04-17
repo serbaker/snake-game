@@ -33,11 +33,11 @@
 
   setInterval(() => {
     const clonedData = _.cloneDeep(data);
-    const data2 = game(clonedData.snake || [], clonedData.feed || [], key, { x: 25, y: 24 });
+    const data2 = game(clonedData.snake || [], clonedData.feed || [], key, { x: window.innerWidth / blockSize, y: window.innerHeight / blockSize });
     clonedData.feed = data2.feed;
+    clonedData.snake = data2.snake;
     data = _.defaults(clonedData, defaults);
-      console.log(data2.snake);
-      data.snake = data.snake.map(block => _.defaults(block, defaultBlock));
+    data.snake = data.snake.map(block => _.defaults(block, defaultBlock));
     data.feed = data.feed.map(block => _.defaults(block, defaultBlock));
     render([].concat(data.feed, data.snake));
   }, Math.max(1000 / Math.abs(gameSpeed), 100));
